@@ -1,0 +1,304 @@
+{
+  "guideline_evaluations_3.0.2": [
+    {
+      "id": "8a8c774708d5531cb48c7c724f45b3b2",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer accepts or declines the offer of a refreshing drink",
+          "agent_action": "The agent offers a refreshing drink"
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "f6690b3e64c4bc092ac5704fe761bbbc",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer provides the reason for their visit",
+          "agent_action": "The agent determines the reason for the visit by asking the customer"
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "cf099ea648a633d3bd12ee55ce5c29ba",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer indicates which time works for them",
+          "agent_action": "The agent lists available times and asks which one works for the customer"
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "b1fd83a3cc424de18a308a04837c13ac",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The patient confirms the details",
+          "agent_action": "The agent confirms the details with the patient before scheduling"
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "a52565ded3e96f87621ce246b67e1606",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "51ba8c4e430a7b854fad3d097cbc0ac1",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer confirms if any of the listed times works for them",
+          "agent_action": "The agent lists later times and asks if any of them works"
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "d770323fc60206a8967915d6f5b27efc",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The patient calls the office to schedule an appointment",
+          "agent_action": "The agent asks the patient to call the office to schedule an appointment"
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "2ad2c340273ce8a353105a7795b690a4",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "2918367a673c38df79431a611834e5ea",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "bd28606478162883ef5b86561eff4eb5",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer calls the office for clarifications on the results",
+          "agent_action": "The agent presents the results and asks the customer to call the office for clarifications on the results as they are not a doctor"
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "31fa22d95478c39c30c33e5a04764cbd",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "a9fa70b5a62625c61eeb6a98cbb48ab9",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The patient calls the office immediately",
+          "agent_action": "The agent tells the patient to call the office immediately"
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "1966327d607390a495a3cef297336f6c",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": true
+      }
+    },
+    {
+      "id": "740fd5cb44cdabb7896acf804c2c124b",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": true
+      }
+    },
+    {
+      "id": "1e6fa8d163e8fa7be6345c07fcce0043",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": true
+      }
+    },
+    {
+      "id": "87e077f7ef5db83f640b2d89e851af28",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "894aa21c2cbcf8d85728d2a2025c8c75",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "b866ca96206eda41b7aff77dace8068e",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "ce7bc4ec092d779975da81122ffb4790",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": true
+      }
+    }
+  ],
+  "journey_evaluations_3.0.2": [
+    {
+      "id": "6c87f1652cd0f131676870e3cfd1ace1",
+      "version": "3.0.2",
+      "node_properties": {
+        "ZLTJQOYmqM": {
+          "internal_action": "Confirm the appointment time and reason for visit with the patient before scheduling."
+        },
+        "iwETgqk31h": {
+          "internal_action": "Use the tool schedule_appointment for the confirmed time and reason."
+        }
+      },
+      "edge_properties": {}
+    },
+    {
+      "id": "d30ddd9624389553b49e2dece9684a8c",
+      "version": "3.0.2",
+      "node_properties": {},
+      "edge_properties": {}
+    }
+  ]
+}
