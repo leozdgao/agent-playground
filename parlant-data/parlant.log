@@ -1305,3 +1305,25 @@ During handling of the above exception, another exception occurred:
 [2m2025-10-08T06:27:26.165782Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
 [2m2025-10-08T07:40:20.895436Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (1)[0m
 [2m2025-10-08T07:40:20.918936Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2025-10-08T07:40:43.640189Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.0.2[0m
+[2m2025-10-08T07:40:43.640544Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory '/Users/leozdgao/workspace/playground/py-game/parlant-data'[0m
+[2m2025-10-08T07:40:43.642778Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2025-10-08T07:40:50.794992Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized LiteLLMService[0m
+[2m2025-10-08T07:40:57.769542Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2025-10-08T07:40:57.769875Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2025-10-08T07:40:57.770025Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2025-10-08T07:40:57.770158Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2025-10-08T07:40:57.770323Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2025-10-08T07:41:45.057263Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (1)[0m
+[2m2025-10-08T07:41:45.064186Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2025-10-08T07:42:10.294098Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.0.2[0m
+[2m2025-10-08T07:42:10.294375Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory '/Users/leozdgao/workspace/playground/py-game/parlant-data'[0m
+[2m2025-10-08T07:42:10.296553Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2025-10-08T07:42:15.847215Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized LiteLLMService[0m
+[2m2025-10-08T07:42:22.472777Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2025-10-08T07:42:22.473293Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2025-10-08T07:42:22.473463Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2025-10-08T07:42:22.473605Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2025-10-08T07:42:22.473730Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2025-10-08T07:42:28.559875Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (1)[0m
+[2m2025-10-08T07:42:28.568327Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m

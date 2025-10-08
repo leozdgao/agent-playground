@@ -1,7 +1,8 @@
 # 客户查款类相关处理流程
 
 import parlant.sdk as p
-from tools import get_firm_info, fund, collabration, risk
+from customerservice.tools import account
+from tools import fund, collabration, risk
 
 async def create_inquiry_journey(server: p.Server, agent: p.Agent) -> p.Journey:
   # Create the journey
@@ -15,7 +16,7 @@ async def create_inquiry_journey(server: p.Server, agent: p.Agent) -> p.Journey:
   t0 = await journey.initial_state.transition_to(chat_state="确认是哪个客户出的问题，需要提供 firmId")
 
   # 获取完整客户信息
-  t1 = await t0.target.transition_to(tool_state=get_firm_info.get_firm_info)
+  t1 = await t0.target.transition_to(tool_state=account.get_firm_info)
 
   # 询问付款金额/币种
   t2 = await t1.target.transition_to(chat_state="确认问题款项的付款金额/币种")
