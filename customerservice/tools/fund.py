@@ -2,14 +2,12 @@
 
 import parlant.sdk as p
 
-# 入金记录查询
 @p.tool
 async def deposit_query(context: p.ToolContext, amount: float, currency: str) -> p.ToolResult:
   # rpc call to firm service
   # Simulate getting the deposit query
   return p.ToolResult(data={"amount": amount, "currency": currency, "status": "auditing"})
 
-# VA 异常入账查询
 @p.tool
 async def check_va_expection(context: p.ToolContext, firmId: str, amount: float, currency: str) -> p.ToolResult:
   # 获取客户的 DBS 收款账户

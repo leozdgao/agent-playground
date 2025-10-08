@@ -555,3 +555,753 @@ During handling of the above exception, another exception occurred:
 [2m2025-10-07T14:38:36.906978Z[0m [[33m[1mwarning  [0m] [1m[RWIPEPurvWI] HTTP Request: GET /sessions/u0J1Ic863T/events cancelled after 23.989 seconds[0m
 [2m2025-10-07T14:38:36.995563Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (2)[0m
 [2m2025-10-07T14:38:37.080976Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2025-10-08T05:49:47.222508Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.0.2[0m
+[2m2025-10-08T05:49:47.223410Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory '/Users/leozdgao/workspace/playground/py-game/parlant-data'[0m
+[2m2025-10-08T05:49:47.228456Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2025-10-08T05:49:48.062297Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized OpenAIService[0m
+[2m2025-10-08T05:50:00.673373Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (1)[0m
+[2m2025-10-08T05:50:00.673887Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2025-10-08T05:50:00.674304Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Waiting for task 'websocket-logger' to finish[0m
+[2m2025-10-08T05:50:28.676844Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.0.2[0m
+[2m2025-10-08T05:50:28.677385Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory '/Users/leozdgao/workspace/playground/py-game/parlant-data'[0m
+[2m2025-10-08T05:50:28.681627Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2025-10-08T05:50:41.261630Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized LiteLLMService[0m
+[2m2025-10-08T05:51:39.898624Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+  {
+    "action": "Use the tool deposit_query",
+    "rational": "The action only involves running the deposit_query tool without any user communication.",
+    "is_tool_running_only": true
+  }
+][0m
+[2m2025-10-08T05:51:39.907778Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T05:51:39.909624Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T05:51:39.913687Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 0 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T05:51:47.646098Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (9)[0m
+[2m2025-10-08T05:51:47.646480Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2025-10-08T05:51:47.646684Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Waiting for task 'websocket-logger' to finish[0m
+[2m2025-10-08T06:04:47.435081Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.0.2[0m
+[2m2025-10-08T06:04:47.435815Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory '/Users/leozdgao/workspace/playground/py-game/parlant-data'[0m
+[2m2025-10-08T06:04:47.438937Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2025-10-08T06:04:56.961676Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized LiteLLMService[0m
+[2m2025-10-08T06:05:21.699310Z[0m [[31m[1merror    [0m] [1m[<main>][CustomerDependentActionDetector][LiteLLM Request (CustomerDependentActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[  
+  {  
+    "action": "向咨询人回复已创建协同工单转交客资同时进一步排查，请耐心等待",  
+    "is_customer_dependent": false  
+  }  
+][0m
+[2m2025-10-08T06:05:21.711024Z[0m [[31m[1merror    [0m] [1m[<main>][CustomerDependentActionDetector][LiteLLM Request (CustomerDependentActionSchema)] LiteLLM Request (CustomerDependentActionSchema) failed[0m
+[2m2025-10-08T06:05:21.712345Z[0m [[31m[1merror    [0m] [1m[<main>][CustomerDependentActionDetector][LiteLLM Request (CustomerDependentActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for CustomerDependentActionSchema
+  Input should be a valid dictionary or instance of CustomerDependentActionSchema [type=model_type, input_value=[{'action': '向咨询人...omer_dependent': False}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:05:21.715963Z[0m [[33m[1mwarning  [0m] [1m[<main>][CustomerDependentActionDetector][LiteLLM Request (CustomerDependentActionSchema)] CustomerDependentActionDetector attempt 0 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/customer_dependent_action_detector.py", line 82, in detect_if_customer_dependent\n    proposition = await self._generate_customer_dependent(\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/customer_dependent_action_detector.py", line 197, in _generate_customer_dependent\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for CustomerDependentActionSchema\n  Input should be a valid dictionary or instance of CustomerDependentActionSchema [type=model_type, input_value=[{'action': '向咨询人...omer_dependent': False}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:05:23.595393Z[0m [[31m[1merror    [0m] [1m[<main>][CustomerDependentActionDetector][LiteLLM Request (CustomerDependentActionSchema)][LiteLLM Request (CustomerDependentActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[  
+  {  
+    "action": "向咨询人回复已创建协同工单转交客资同时进一步排查，请耐心等待",  
+    "is_customer_dependent": false  
+  }  
+][0m
+[2m2025-10-08T06:05:23.597629Z[0m [[31m[1merror    [0m] [1m[<main>][CustomerDependentActionDetector][LiteLLM Request (CustomerDependentActionSchema)][LiteLLM Request (CustomerDependentActionSchema)] LiteLLM Request (CustomerDependentActionSchema) failed[0m
+[2m2025-10-08T06:05:23.599458Z[0m [[31m[1merror    [0m] [1m[<main>][CustomerDependentActionDetector][LiteLLM Request (CustomerDependentActionSchema)][LiteLLM Request (CustomerDependentActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for CustomerDependentActionSchema
+  Input should be a valid dictionary or instance of CustomerDependentActionSchema [type=model_type, input_value=[{'action': '向咨询人...omer_dependent': False}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:05:23.601550Z[0m [[33m[1mwarning  [0m] [1m[<main>][CustomerDependentActionDetector][LiteLLM Request (CustomerDependentActionSchema)][LiteLLM Request (CustomerDependentActionSchema)] CustomerDependentActionDetector attempt 1 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/customer_dependent_action_detector.py", line 82, in detect_if_customer_dependent\n    proposition = await self._generate_customer_dependent(\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/customer_dependent_action_detector.py", line 197, in _generate_customer_dependent\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for CustomerDependentActionSchema\n  Input should be a valid dictionary or instance of CustomerDependentActionSchema [type=model_type, input_value=[{'action': '向咨询人...omer_dependent': False}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:05:25.146244Z[0m [[31m[1merror    [0m] [1m[<main>][CustomerDependentActionDetector][LiteLLM Request (CustomerDependentActionSchema)][LiteLLM Request (CustomerDependentActionSchema)][LiteLLM Request (CustomerDependentActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+  {
+    "action": "向咨询人回复已创建协同工单转交客资同时进一步排查，请耐心等待",
+    "is_customer_dependent": false
+  }
+][0m
+[2m2025-10-08T06:05:25.148948Z[0m [[31m[1merror    [0m] [1m[<main>][CustomerDependentActionDetector][LiteLLM Request (CustomerDependentActionSchema)][LiteLLM Request (CustomerDependentActionSchema)][LiteLLM Request (CustomerDependentActionSchema)] LiteLLM Request (CustomerDependentActionSchema) failed[0m
+[2m2025-10-08T06:05:25.149604Z[0m [[31m[1merror    [0m] [1m[<main>][CustomerDependentActionDetector][LiteLLM Request (CustomerDependentActionSchema)][LiteLLM Request (CustomerDependentActionSchema)][LiteLLM Request (CustomerDependentActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for CustomerDependentActionSchema
+  Input should be a valid dictionary or instance of CustomerDependentActionSchema [type=model_type, input_value=[{'action': '向咨询人...omer_dependent': False}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:05:25.150284Z[0m [[33m[1mwarning  [0m] [1m[<main>][CustomerDependentActionDetector][LiteLLM Request (CustomerDependentActionSchema)][LiteLLM Request (CustomerDependentActionSchema)][LiteLLM Request (CustomerDependentActionSchema)] CustomerDependentActionDetector attempt 2 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/customer_dependent_action_detector.py", line 82, in detect_if_customer_dependent\n    proposition = await self._generate_customer_dependent(\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/customer_dependent_action_detector.py", line 197, in _generate_customer_dependent\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for CustomerDependentActionSchema\n  Input should be a valid dictionary or instance of CustomerDependentActionSchema [type=model_type, input_value=[{'action': '向咨询人...omer_dependent': False}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:05:53.060990Z[0m [[32m[1minfo     [0m] [1m[<main>] Evaluation task 'uXdTjVKwWd' failed due to the following error: 'Evaluation failed'[0m
+[2m2025-10-08T06:05:55.047184Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[  
+  {  
+    "action": "Use the tool check_va_expection",  
+    "rational": "The action only involves running a tool without any user communication",  
+    "is_tool_running_only": true  
+  }  
+][0m
+[2m2025-10-08T06:05:55.063736Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:05:55.081090Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:05:55.086882Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 0 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:05:57.151786Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[  
+  {  
+    "action": "Use the tool check_va_expection",  
+    "rational": "The action only involves running a tool without any user communication",  
+    "is_tool_running_only": true  
+  }  
+][0m
+[2m2025-10-08T06:05:57.153816Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:05:57.155042Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:05:57.156179Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 1 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:05:59.152040Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (10)[0m
+[2m2025-10-08T06:05:59.155428Z[0m [[33m[1mwarning  [0m] [1m[<main>] BackgroundTaskService: Awaited task raised an exception: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/customer_dependent_action_detector.py", line 82, in detect_if_customer_dependent\n    proposition = await self._generate_customer_dependent(\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/customer_dependent_action_detector.py", line 197, in _generate_customer_dependent\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for CustomerDependentActionSchema\n  Input should be a valid dictionary or instance of CustomerDependentActionSchema [type=model_type, input_value=[{'action': '向咨询人...omer_dependent': False}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n", '\nThe above exception was the direct cause of the following exception:\n\n', 'Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/background_tasks.py", line 130, in _await_task\n    await task\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 1021, in _run_evaluation\n    guideline_evaluation_data, journey_evaluation_data = await async_utils.safe_gather(\n                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/async_utils.py", line 148, in safe_gather\n    return await asyncio.gather(\n           ^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 752, in evaluate\n    customer_dependant_action_detections = await self._detect_customer_dependant_actions(\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 827, in _detect_customer_dependant_actions\n    sparse_results = await async_utils.safe_gather(*tasks)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/async_utils.py", line 148, in safe_gather\n    return await asyncio.gather(\n           ^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/customer_dependent_action_detector.py", line 102, in detect_if_customer_dependent\n    raise EvaluationError() from last_generation_exception\n', 'parlant.core.services.indexing.common.EvaluationError: Evaluation failed\n'][0m
+[2m2025-10-08T06:05:59.156609Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2025-10-08T06:08:28.971131Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.0.2[0m
+[2m2025-10-08T06:08:28.971596Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory '/Users/leozdgao/workspace/playground/py-game/parlant-data'[0m
+[2m2025-10-08T06:08:28.975790Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2025-10-08T06:08:39.079931Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized LiteLLMService[0m
+[2m2025-10-08T06:09:51.622672Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[  
+  {  
+    "action": "Use the tool check_va_expection",  
+    "rational": "The action only involves running a tool without any user communication",  
+    "is_tool_running_only": true  
+  }  
+][0m
+[2m2025-10-08T06:09:51.628439Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:09:51.629388Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:09:51.631283Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 0 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:09:53.732494Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[  
+  {  
+    "action": "Use the tool check_va_expection",  
+    "rational": "only involves running a tool without any user-facing communication",  
+    "is_tool_running_only": true  
+  }  
+][0m
+[2m2025-10-08T06:09:53.734536Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:09:53.735339Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:09:53.736042Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 1 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:09:57.662855Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+  {
+    "action": "Use the tool check_va_expection",
+    "rational": "The action only involves running a tool without any communication to the user.",
+    "is_tool_running_only": true
+  }
+][0m
+[2m2025-10-08T06:09:57.664633Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:09:57.665304Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:09:57.665950Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 2 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:09:57.669149Z[0m [[32m[1minfo     [0m] [1m[<main>] Evaluation task 'O95XQaujuy' failed due to the following error: 'Evaluation failed'[0m
+[2m2025-10-08T06:09:59.573549Z[0m [[31m[1merror    [0m] [1m[<main>] Evaluation task 'Qgp6QR1vBp' failed due to the following error: ''[0m
+[2m2025-10-08T06:10:00.197278Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (10)[0m
+[2m2025-10-08T06:10:00.199174Z[0m [[33m[1mwarning  [0m] [1m[<main>] BackgroundTaskService: Awaited task raised an exception: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n", '\nThe above exception was the direct cause of the following exception:\n\n', 'Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/background_tasks.py", line 130, in _await_task\n    await task\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 1021, in _run_evaluation\n    guideline_evaluation_data, journey_evaluation_data = await async_utils.safe_gather(\n                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/async_utils.py", line 148, in safe_gather\n    return await asyncio.gather(\n           ^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 760, in evaluate\n    tool_running_action_propositions = await self._detect_tool_running_actions(\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 926, in _detect_tool_running_actions\n    sparse_results = await async_utils.safe_gather(*tasks)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/async_utils.py", line 148, in safe_gather\n    return await asyncio.gather(\n           ^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 99, in detect_if_tool_running\n    raise EvaluationError() from last_generation_exception\n', 'parlant.core.services.indexing.common.EvaluationError: Evaluation failed\n'][0m
+[2m2025-10-08T06:10:00.202278Z[0m [[33m[1mwarning  [0m] [1m[<main>] BackgroundTaskService: Awaited task raised an exception: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions\n    yield\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request\n    resp = await self._pool.handle_async_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request\n    raise exc from None\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request\n    response = await connection.handle_async_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request\n    return await self._connection.handle_async_request(request)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request\n    raise exc\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request\n    ) = await self._receive_response_headers(**kwargs)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers\n    event = await self._receive_event(timeout=timeout)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 217, in _receive_event\n    data = await self._network_stream.read(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 32, in read\n    with map_exceptions(exc_map):\n', '  File "/Users/leozdgao/.local/share/uv/python/cpython-3.11.13-macos-x86_64-none/lib/python3.11/contextlib.py", line 158, in __exit__\n    self.gen.throw(typ, value, traceback)\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions\n    raise to_exc(exc) from exc\n', 'httpcore.ReadError\n', '\nThe above exception was the direct cause of the following exception:\n\n', 'Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/background_tasks.py", line 130, in _await_task\n    await task\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 1021, in _run_evaluation\n    guideline_evaluation_data, journey_evaluation_data = await async_utils.safe_gather(\n                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/async_utils.py", line 148, in safe_gather\n    return await asyncio.gather(\n           ^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 760, in evaluate\n    tool_running_action_propositions = await self._detect_tool_running_actions(\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 926, in _detect_tool_running_actions\n    sparse_results = await async_utils.safe_gather(*tasks)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/async_utils.py", line 148, in safe_gather\n    return await asyncio.gather(\n           ^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 65, in detect_if_tool_running\n    tool = await service.read_tool(tid.tool_name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/tools/plugins.py", line 795, in read_tool\n    response = await self._http_client.get(self._get_url(f"/tools/{name}"))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1768, in get\n    return await self.request(\n           ^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request\n    return await self.send(request, auth=auth, follow_redirects=follow_redirects)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send\n    response = await self._send_handling_auth(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth\n    response = await self._send_handling_redirects(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects\n    response = await self._send_single_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request\n    response = await transport.handle_async_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request\n    with map_httpcore_exceptions():\n', '  File "/Users/leozdgao/.local/share/uv/python/cpython-3.11.13-macos-x86_64-none/lib/python3.11/contextlib.py", line 158, in __exit__\n    self.gen.throw(typ, value, traceback)\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\n', 'httpx.ReadError\n'][0m
+[2m2025-10-08T06:10:00.204312Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2025-10-08T06:13:20.962388Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.0.2[0m
+[2m2025-10-08T06:13:20.963255Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory '/Users/leozdgao/workspace/playground/py-game/parlant-data'[0m
+[2m2025-10-08T06:13:20.967304Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2025-10-08T06:13:31.876679Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized LiteLLMService[0m
+[2m2025-10-08T06:15:01.952724Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+  {
+    "action": "Use the tool check_va_expection",
+    "rational": "The action only involves running a tool without any user communication",
+    "is_tool_running_only": true
+  }
+][0m
+[2m2025-10-08T06:15:01.961318Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:15:01.963004Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:15:01.965511Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 0 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:15:07.121269Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+  {
+    "action": "Use the tool check_va_expection",
+    "rational": "The action only involves running a tool without any communication to the user.",
+    "is_tool_running_only": true
+  }
+][0m
+[2m2025-10-08T06:15:07.123206Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:15:07.123820Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:15:07.124567Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 1 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:15:09.299365Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+  {
+    "action": "Use the tool check_va_expection",
+    "rational": "The action only involves running a tool without any user communication",
+    "is_tool_running_only": true
+  }
+][0m
+[2m2025-10-08T06:15:09.301135Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:15:09.301802Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:15:09.302409Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 2 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:15:09.304839Z[0m [[32m[1minfo     [0m] [1m[<main>] Evaluation task 'TuLFnjnRFN' failed due to the following error: 'Evaluation failed'[0m
+[2m2025-10-08T06:15:11.949027Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+  {
+    "action": "Use the tool check_dispute_retrieval",
+    "rational": "The action only involves running the tool without any user communication",
+    "is_tool_running_only": true
+  }
+][0m
+[2m2025-10-08T06:15:11.950822Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:15:11.951559Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:15:11.952282Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 0 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:15:16.030165Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+  {
+    "action": "Use the tool check_dispute_retrieval",
+    "rational": "The action only involves running a tool without any communication to the user",
+    "is_tool_running_only": true
+  }
+][0m
+[2m2025-10-08T06:15:16.032121Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:15:16.032803Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:15:16.033674Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 1 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:15:18.749346Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[  
+  {  
+    "action": "Use the tool check_dispute_retrieval",  
+    "rational": "The action only involves running the tool without any user-facing communication.",  
+    "is_tool_running_only": true  
+  }  
+][0m
+[2m2025-10-08T06:15:18.751552Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:15:18.752178Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:15:18.753134Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 2 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:15:18.755843Z[0m [[32m[1minfo     [0m] [1m[<main>] Evaluation task 'aI3mqjXZC7' failed due to the following error: 'Evaluation failed'[0m
+[2m2025-10-08T06:15:19.381003Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (5)[0m
+[2m2025-10-08T06:15:19.383419Z[0m [[33m[1mwarning  [0m] [1m[<main>] BackgroundTaskService: Awaited task raised an exception: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n", '\nThe above exception was the direct cause of the following exception:\n\n', 'Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/background_tasks.py", line 130, in _await_task\n    await task\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 1021, in _run_evaluation\n    guideline_evaluation_data, journey_evaluation_data = await async_utils.safe_gather(\n                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/async_utils.py", line 148, in safe_gather\n    return await asyncio.gather(\n           ^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 760, in evaluate\n    tool_running_action_propositions = await self._detect_tool_running_actions(\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 926, in _detect_tool_running_actions\n    sparse_results = await async_utils.safe_gather(*tasks)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/async_utils.py", line 148, in safe_gather\n    return await asyncio.gather(\n           ^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 99, in detect_if_tool_running\n    raise EvaluationError() from last_generation_exception\n', 'parlant.core.services.indexing.common.EvaluationError: Evaluation failed\n'][0m
+[2m2025-10-08T06:15:19.385354Z[0m [[33m[1mwarning  [0m] [1m[<main>] BackgroundTaskService: Awaited task raised an exception: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n", '\nThe above exception was the direct cause of the following exception:\n\n', 'Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/background_tasks.py", line 130, in _await_task\n    await task\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 1021, in _run_evaluation\n    guideline_evaluation_data, journey_evaluation_data = await async_utils.safe_gather(\n                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/async_utils.py", line 148, in safe_gather\n    return await asyncio.gather(\n           ^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 760, in evaluate\n    tool_running_action_propositions = await self._detect_tool_running_actions(\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 926, in _detect_tool_running_actions\n    sparse_results = await async_utils.safe_gather(*tasks)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/async_utils.py", line 148, in safe_gather\n    return await asyncio.gather(\n           ^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 99, in detect_if_tool_running\n    raise EvaluationError() from last_generation_exception\n', 'parlant.core.services.indexing.common.EvaluationError: Evaluation failed\n'][0m
+[2m2025-10-08T06:15:19.386235Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2025-10-08T06:20:04.805398Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.0.2[0m
+[2m2025-10-08T06:20:04.806122Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory '/Users/leozdgao/workspace/playground/py-game/parlant-data'[0m
+[2m2025-10-08T06:20:04.810730Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2025-10-08T06:20:15.600127Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized LiteLLMService[0m
+[2m2025-10-08T06:20:32.312914Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+    {
+        "action": "Use the tool check_va_expection",
+        "rational": "The action only involves running a tool without any user communication",
+        "is_tool_running_only": true
+    }
+][0m
+[2m2025-10-08T06:20:32.319557Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:20:32.320205Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:20:32.321874Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 0 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:20:35.305001Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[  
+  {  
+    "action": "Use the tool check_va_expection",  
+    "rational": "The action only involves running a tool without any user communication",  
+    "is_tool_running_only": true  
+  }  
+][0m
+[2m2025-10-08T06:20:35.306964Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:20:35.307826Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:20:35.308709Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 1 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:20:41.505815Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+  {
+    "action": "Use the tool check_dispute_retrieval",
+    "rational": "The action only involves running a tool without any communication to the user.",
+    "is_tool_running_only": true
+  }
+][0m
+[2m2025-10-08T06:20:41.508939Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:20:41.509704Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:20:41.510646Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 0 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:20:44.166171Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+  {
+    "action": "Use the tool check_dispute_retrieval",
+    "rational": "The action only involves running the tool without any user communication",
+    "is_tool_running_only": true
+  }
+][0m
+[2m2025-10-08T06:20:44.188219Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:20:44.189223Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:20:44.190051Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 1 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:20:47.082046Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+    {
+        "action": "Use the tool check_dispute_retrieval",
+        "rational": "The action only involves running a tool without any user communication",
+        "is_tool_running_only": true
+    }
+][0m
+[2m2025-10-08T06:20:47.084640Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:20:47.085555Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:20:47.086389Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 2 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:20:47.087887Z[0m [[32m[1minfo     [0m] [1m[<main>] Evaluation task 'vOe1XKgDfL' failed due to the following error: 'Evaluation failed'[0m
+[2m2025-10-08T06:20:47.709975Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (3)[0m
+[2m2025-10-08T06:20:47.711892Z[0m [[33m[1mwarning  [0m] [1m[<main>] BackgroundTaskService: Awaited task raised an exception: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n", '\nThe above exception was the direct cause of the following exception:\n\n', 'Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/background_tasks.py", line 130, in _await_task\n    await task\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 1021, in _run_evaluation\n    guideline_evaluation_data, journey_evaluation_data = await async_utils.safe_gather(\n                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/async_utils.py", line 148, in safe_gather\n    return await asyncio.gather(\n           ^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 760, in evaluate\n    tool_running_action_propositions = await self._detect_tool_running_actions(\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 926, in _detect_tool_running_actions\n    sparse_results = await async_utils.safe_gather(*tasks)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/async_utils.py", line 148, in safe_gather\n    return await asyncio.gather(\n           ^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 99, in detect_if_tool_running\n    raise EvaluationError() from last_generation_exception\n', 'parlant.core.services.indexing.common.EvaluationError: Evaluation failed\n'][0m
+[2m2025-10-08T06:20:47.712456Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2025-10-08T06:24:13.695241Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.0.2[0m
+[2m2025-10-08T06:24:13.695949Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory '/Users/leozdgao/workspace/playground/py-game/parlant-data'[0m
+[2m2025-10-08T06:24:13.699642Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2025-10-08T06:24:24.303769Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized LiteLLMService[0m
+[2m2025-10-08T06:24:40.864218Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+  {
+    "action": "Use the tool check_dispute_retrieval",
+    "rational": "The action only involves running a tool without any communication to the user.",
+    "is_tool_running_only": true
+  }
+][0m
+[2m2025-10-08T06:24:40.871282Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:24:40.872652Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:24:40.876164Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 0 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:24:43.613750Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+  {
+    "action": "Use the tool check_dispute_retrieval",
+    "rational": "The action only involves running the tool without any user communication",
+    "is_tool_running_only": true
+  }
+][0m
+[2m2025-10-08T06:24:43.617075Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:24:43.617848Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:24:43.618928Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 1 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:24:45.337093Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[  
+  {  
+    "action": "Use the tool check_dispute_retrieval",  
+    "rational": "The action only involves running the tool without any user communication",  
+    "is_tool_running_only": true  
+  }  
+][0m
+[2m2025-10-08T06:24:45.339370Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:24:45.340058Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:24:45.340731Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 2 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:24:45.342058Z[0m [[32m[1minfo     [0m] [1m[<main>] Evaluation task 'R02QKMCfBG' failed due to the following error: 'Evaluation failed'[0m
+[2m2025-10-08T06:24:45.966080Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (2)[0m
+[2m2025-10-08T06:24:45.968005Z[0m [[33m[1mwarning  [0m] [1m[<main>] BackgroundTaskService: Awaited task raised an exception: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 151, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n", '\nThe above exception was the direct cause of the following exception:\n\n', 'Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/background_tasks.py", line 130, in _await_task\n    await task\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 1021, in _run_evaluation\n    guideline_evaluation_data, journey_evaluation_data = await async_utils.safe_gather(\n                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/async_utils.py", line 148, in safe_gather\n    return await asyncio.gather(\n           ^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 760, in evaluate\n    tool_running_action_propositions = await self._detect_tool_running_actions(\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/behavioral_change_evaluation.py", line 926, in _detect_tool_running_actions\n    sparse_results = await async_utils.safe_gather(*tasks)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/async_utils.py", line 148, in safe_gather\n    return await asyncio.gather(\n           ^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 99, in detect_if_tool_running\n    raise EvaluationError() from last_generation_exception\n', 'parlant.core.services.indexing.common.EvaluationError: Evaluation failed\n'][0m
+[2m2025-10-08T06:24:45.968502Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2025-10-08T06:25:08.909461Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.0.2[0m
+[2m2025-10-08T06:25:08.910129Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory '/Users/leozdgao/workspace/playground/py-game/parlant-data'[0m
+[2m2025-10-08T06:25:08.916012Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2025-10-08T06:25:17.692991Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized LiteLLMService[0m
+[2m2025-10-08T06:25:33.307565Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] JSON content returned by litellm/openrouter/deepseek/deepseek-chat-v3-0324 does not match expected schema:
+[
+    {
+        "action": "Use the tool check_dispute_retrieval",
+        "rational": "The action only involves running the tool without any user communication",
+        "is_tool_running_only": true
+    }
+][0m
+[2m2025-10-08T06:25:33.311674Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] LiteLLM Request (ToolRunningActionSchema) failed[0m
+[2m2025-10-08T06:25:33.313045Z[0m [[31m[1merror    [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] Traceback (most recent call last):
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 275, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/loggers.py", line 411, in operation
+    yield
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate
+    return await self._do_generate(prompt, hints)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 152, in _do_generate
+    content = self.schema.model_validate(json_content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema
+  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+[0m
+[2m2025-10-08T06:25:33.315441Z[0m [[33m[1mwarning  [0m] [1m[<main>][ToolRunningActionDetector][LiteLLM Request (ToolRunningActionSchema)] ToolRunningActionDetector attempt 0 failed: ['Traceback (most recent call last):\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 79, in detect_if_tool_running\n    result = await self._generate_tool_running(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/core/services/indexing/tool_running_action_detector.py", line 250, in _generate_tool_running\n    response = await self._schematic_generator.generate(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 109, in generate\n    return await self._do_generate(prompt, hints)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/parlant/adapters/nlp/litellm_service.py", line 152, in _do_generate\n    content = self.schema.model_validate(json_content)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "/Users/leozdgao/workspace/playground/py-game/.venv/lib/python3.11/site-packages/pydantic/main.py", line 705, in model_validate\n    return cls.__pydantic_validator__.validate_python(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', "pydantic_core._pydantic_core.ValidationError: 1 validation error for ToolRunningActionSchema\n  Input should be a valid dictionary or instance of ToolRunningActionSchema [type=model_type, input_value=[{'action': 'Use the tool...ol_running_only': True}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\n"][0m
+[2m2025-10-08T06:25:35.359140Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2025-10-08T06:25:35.359332Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2025-10-08T06:25:35.359614Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2025-10-08T06:25:35.359740Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2025-10-08T06:25:35.359845Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2025-10-08T06:25:35.364445Z[0m [[32m[1minfo     [0m] [1m[ROEKFVAl2jc] Session not found (id='u0J1Ic863T')[0m
+[2m2025-10-08T06:27:05.183290Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (2)[0m
+[2m2025-10-08T06:27:05.192148Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m
+[2m2025-10-08T06:27:12.945114Z[0m [[32m[1minfo     [0m] [1m[<main>] Parlant server version 3.0.2[0m
+[2m2025-10-08T06:27:12.945409Z[0m [[32m[1minfo     [0m] [1m[<main>] Using home directory '/Users/leozdgao/workspace/playground/py-game/parlant-data'[0m
+[2m2025-10-08T06:27:12.947513Z[0m [[32m[1minfo     [0m] [1m[<main>] No external modules selected[0m
+[2m2025-10-08T06:27:19.065640Z[0m [[32m[1minfo     [0m] [1m[<main>] Initialized LiteLLMService[0m
+[2m2025-10-08T06:27:26.164273Z[0m [[32m[1minfo     [0m] [1m[<main>] .-----------------------------------------.[0m
+[2m2025-10-08T06:27:26.165364Z[0m [[32m[1minfo     [0m] [1m[<main>] | Server is ready for some serious action |[0m
+[2m2025-10-08T06:27:26.165521Z[0m [[32m[1minfo     [0m] [1m[<main>] '-----------------------------------------'[0m
+[2m2025-10-08T06:27:26.165657Z[0m [[32m[1minfo     [0m] [1m[<main>] Server authorization policy: development[0m
+[2m2025-10-08T06:27:26.165782Z[0m [[32m[1minfo     [0m] [1m[<main>] Try the Sandbox UI at http://localhost:8800[0m
+[2m2025-10-08T07:40:20.895436Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Cancelling all remaining tasks (1)[0m
+[2m2025-10-08T07:40:20.918936Z[0m [[32m[1minfo     [0m] [1m[<main>] BackgroundTaskService: Shutting down[0m

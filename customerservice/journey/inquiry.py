@@ -38,31 +38,50 @@ async def create_inquiry_journey(server: p.Server, agent: p.Agent) -> p.Journey:
 
   # 没有查到款项，进入接下去的异常排查，查看是否存在 VA 异常入账
   t4 = await t3.target.transition_to(
-    tool_state=fund.check_va_expection,
+    chat_state="告知对方系统中未查到相关款项记录，正在确认是否有 VA 异常入账",
     condition="收款记录不存在",
   )
-
+  t5 = await t4.target.transition_to(
+    tool_state=fund.check_va_expection,
+  )
   # 没有查到款项，进入接下去的异常排查，查看是否存在 VA 异常入账
-  t4_0 = await t4.target.transition_to(
+  t5_0 = await t5.target.transition_to(
     chat_state="回复说发现客户存在 VA 异常入账的情况，准备创建协同工单协同客资来解决",
     condition="存在VA异常入账",
   )
-  t4_1 = await t4_0.target.transition_to(
+  t5_1 = await t5_0.target.transition_to(
     tool_state=collabration.create_collabration_workorder,
   )
-  t4_2 = await t4_1.target.transition_to(
+  t5_2 = await t5_1.target.transition_to(
     chat_state="向咨询人回复已创建协同工单转交客资同时进一步排查，请耐心等待",
   )
-  await t4_2.target.transition_to(state=p.END_JOURNEY)
+  await t5_2.target.transition_to(state=p.END_JOURNEY)
 
-  t5 = await t4.target.transition_to(
-    tool_state=risk.check_dispute_retrieval,
+  t6 = await t5.target.transition_to(
+    chat_state="告知对方系统中未查到VA异常入账工单，需要确认是否有被调单的情况",
     condition="不存在VA异常入账",
   )
-  t5_0 = await t5.target.transition_to(
+  t7 = await t6.target.transition_to(
+    tool_state=risk.check_dispute_retrieval,
+  )
+  t7_1 = await t7.target.transition_to(
     chat_state="回复说客户存在被调单的情况，目前已在跟进中了，需要客户等待 3 个工作日左右",
     condition="存在调单工单",
   )
-  await t5_0.target.transition_to(state=p.END_JOURNEY)
+  await t7_1.target.transition_to(state=p.END_JOURNEY)
+
+  t8 = await t7.target.transition_to(
+    chat_state="回复说客户不存在被调单的情况，目前系统中不存在相关工单",
+    condition="不存在调单工单",
+  )
+  t8_1 = await t8.target.transition_to(
+    tool_state=collabration.create_collabration_workorder,
+  )
+  t8_2 = await t8_1.target.transition_to(
+    chat_state="向咨询人回复已创建协同工单转交客资同时进一步排查，请耐心等待",
+  )
+  await t8_2.target.transition_to(state=p.END_JOURNEY)
+
+  return journey
 
 

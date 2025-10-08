@@ -278,6 +278,245 @@
         "internal_action": null,
         "tool_running_only": true
       }
+    },
+    {
+      "id": "b2e0191b4dd66e4806d34d9dbdce2d04",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer provided their firmId",
+          "agent_action": "The agent confirms which customer is having the issue and requests the firmId"
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "b7a656a23e68b1452d29c4c0c6442220",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer provides the payment amount and currency of the problematic transaction",
+          "agent_action": "The agent confirms the payment amount and currency of the problematic transaction with the customer"
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "9386d912f25c3645ac0527601bdd0958",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "4ab8e18196074e93bbeb1729f56424fb",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "3f593879824cdd33f5d24ba87149d443",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "36a0fedc508c258c0ebe771d186107c9",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": true
+      }
+    },
+    {
+      "id": "4a6f804fa1a27b0e67076c809404c192",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": true
+      }
+    },
+    {
+      "id": "af00d703b7c1d0210c542c827fd0312b",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "d87c207b0aef27d06336960f5a99ae96",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "5233d587bb17901727db45420550727a",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "fb288e73c15b9bd3d2fcaae9bbe3c8b4",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer confirms whether there has been a case of a transferred ticket",
+          "agent_action": "The agent informs the customer that no VA abnormal deposit ticket was found in the system and asks them to confirm if there has been a case of a transferred ticket"
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "15d69bac86f5a20713e2f24024938535",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer waits for 3 working days",
+          "agent_action": "The agent informs the customer that there is a case of document retrieval in progress and it is being followed up, and requests the customer to wait for about 3 working days"
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "9fe6635e00c9402ab378ad0fb8693cd7",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": true
+      }
+    },
+    {
+      "id": "a2271ae79b4d2c2187e285cda245e839",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": false
+      }
+    },
+    {
+      "id": "f032569e7aa1f8bd7225c1337096c9be",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": true
+      }
+    },
+    {
+      "id": "5781ca5031e1f4f131414a74dda3fb8a",
+      "version": "3.0.2",
+      "properties": {
+        "continuous": null,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null,
+        "tool_running_only": true
+      }
     }
   ],
   "journey_evaluations_3.0.2": [
@@ -296,6 +535,24 @@
     },
     {
       "id": "d30ddd9624389553b49e2dece9684a8c",
+      "version": "3.0.2",
+      "node_properties": {},
+      "edge_properties": {}
+    },
+    {
+      "id": "02f7ab6bd89f515d7708355b7e2e9205",
+      "version": "3.0.2",
+      "node_properties": {},
+      "edge_properties": {}
+    },
+    {
+      "id": "06283de2f4c16149dc325782c8754fc0",
+      "version": "3.0.2",
+      "node_properties": {},
+      "edge_properties": {}
+    },
+    {
+      "id": "4db6d316b03e05eeddfc171e061b18f1",
       "version": "3.0.2",
       "node_properties": {},
       "edge_properties": {}
